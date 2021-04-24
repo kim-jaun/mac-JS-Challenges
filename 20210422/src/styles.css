@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+h1 {
+  color: white;
+}
+.small {
+  background-color: #2d8cd5;
+}
+.mid {
+  background-coolr: #8e4fae;
+}
+.big {
+  background-color: #eebc11;
+}
