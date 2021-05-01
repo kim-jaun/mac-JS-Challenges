@@ -7,14 +7,14 @@
 
   <body>
     <h1>Random Number Game</h1>
-    <form class="js-numberRange">
-      <h3 class="js-numberRangeText"></h3>
-      <input type="range" min="10" max="200" value="7" step="1" />
-    </form>
-    <form class="js-userNumber">
-      <input type="text" size="5" />
-      <button>Play!</button>
-    </form>
+    <h3 class="js-numberRangeText"></h3>
+    <input class="js-rangeinput" type="range" min="10" max="200" step="1" />
+    <br />
+    Guess the number: <input class="js-userInput" type="text" size="5" />
+    <button type="button">Play!</button>
+    <br />
+    <span class="js-gameStatus"></span>
+    <h3 class="js-gameResult"></h3>
     <script src="src/index.js"></script>
   </body>
 </html>

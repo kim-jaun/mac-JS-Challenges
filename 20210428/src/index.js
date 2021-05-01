@@ -1,9 +1,9 @@
-const numberRange = document.querySelector(".js-numberRange");
-const rangeInput = numberRange.querySelector("input");
-const rangeText = numberRange.querySelector(".js-numberRangeText");
-const userNumber = document.querySelector(".js-userNumber");
-const userText = userNumber.querySelector("input");
-const userBtn = userNumber.querySelector("button");
+const rangeInput = document.querySelector(".js-rangeinput");
+const rangeText = document.querySelector(".js-numberRangeText");
+const userText = document.querySelector(".js-userInput");
+const userBtn = document.querySelector("button");
+const status = document.querySelector(".js-gameStatus");
+const result = document.querySelector(".js-gameResult");
 
 rangeInput.oninput = handleInput;
 
@@ -12,19 +12,35 @@ function handleInput() {
   rangeText.innerText = `Generate a number between 0 and ${rangeNum}`;
 }
 
-function userNum() {
-  userBtn.addEventListener("submit");
+userBtn.addEventListener("click", gameEnding);
+
+function gameNum() {
+  const maxNum = rangeInput.value;
+  const randomNum = Math.floor(Math.random() * Number(maxNum));
+  return randomNum;
 }
 
-function gameNum(event) {
-  const text = body.createElement("span");
-  const maxNum = rangeInput.value;
-  const randomNum = Math.random() * (maxNum - 10) + 10;
-  text.innerText = `You chose ${userNum} the machin shose ${randomNum}`;
+function gameEnding() {
+  const user = Number(userText.value);
+  const machine = gameNum();
+  if (user === machine) {
+    status.innerText = `Youchose: ${user}, the machine chose: ${machine}`;
+    result.innerText = `You won!`;
+  } else {
+    status.innerText = `Youchose: ${user}, the machine chose: ${machine}`;
+    result.innerText = `You lost!`;
+  }
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = userText.value;
+  gameNum(currentValue);
+  userText.value = "";
+}
+
 function init() {
   handleInput();
-  gameNum();
 }
 
 init();
